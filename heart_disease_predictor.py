@@ -112,6 +112,7 @@ if st.button("Predict"):
     st.write(advice)
 
     # 计算SHAP值并显示力图
+    feature_names = ["age", "sex", "cp", "trestbps", "chol", "fbs", "restecg", "thalach", "exang", "oldpeak", "slope", "ca", "thal"]
     explainer = shap.TreeExplainer(model)
     shap_values = explainer.shap_values(pd.DataFrame([feature_values], columns=self.feature_names))
 
